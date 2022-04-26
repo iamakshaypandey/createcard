@@ -1,5 +1,8 @@
 const addBtn = document.querySelector('.add-item')
 const removeBtn = document.querySelector('.remove-item')
+const showBtn = document.querySelector('.show-item-btn')
+
+
 
 
 const titlArray =[]
@@ -11,6 +14,7 @@ const data1 = async function(){
     });
     return titlArray
 }
+
 
 const getData = async function(){
     const allTitle = await data1()
@@ -29,6 +33,9 @@ const getData = async function(){
     }
 }
 getData()
+
+// showBtn.addEventListener('click',getDataAdded)
+
 
 
 const removeData = function(){
