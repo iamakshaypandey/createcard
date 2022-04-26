@@ -5,6 +5,7 @@ const showBtn = document.querySelector('.show-item-btn')
 
 
 
+
 const titlArray =[]
 const data1 = async function(){
     const alldata = await fetch('https://fakestoreapi.com/products')
@@ -15,29 +16,6 @@ const data1 = async function(){
     return titlArray
 }
 
-
-const getData = async function(){
-    const allTitle = await data1()
-    console.log(allTitle[0]);
-    let count = 0
-    for(let i=0; i===count; i++){
-        addBtn.addEventListener('click',function(){
-            const li = document.createElement('li')
-            const li1 = li.classList.add('list-group-item')
-            li.textContent = `${count+1}   ${allTitle[count]}`
-            const ul1 = document.getElementById("myList").appendChild(li)
-            console.log(i,allTitle[count],count,ul1);
-            count++
-            i++
-        })
-    }
-}
-getData()
-
-// showBtn.addEventListener('click',getDataAdded)
-
-
-
 const removeData = function(){
     const list = document.getElementById("myList");
     if (list.hasChildNodes()) {
@@ -45,7 +23,39 @@ const removeData = function(){
     }
   }
 
-removeBtn.addEventListener('click',removeData)
+
+
+let count = 0
+const getData = async function(){
+    const allTitle = await data1()
+    // console.log(allTitle[0]);
+    // for(let i=0; i===count; i++){
+        addBtn.addEventListener('click',function(){
+            const li = document.createElement('li')
+            const li1 = li.classList.add('list-group-item')
+            li.textContent = `${count+1}   ${allTitle[count]}`
+            const ul1 = document.getElementById("myList").appendChild(li)
+            // console.log(allTitle[count],count,ul1);
+            count++
+            // i++
+        })
+        // }
+        removeBtn.addEventListener('click',removeData)
+    }
+    getData()
+
+
+    const showDataAdded = function(){
+        const items = document.querySelector('.show-items')
+        const showList = document.querySelector('.li').innerText
+        items.textContent=showList
+        // removeData()
+    }
+    
+    showBtn.addEventListener('click',showDataAdded)
+    
+
+
 
 
 
