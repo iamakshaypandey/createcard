@@ -4,16 +4,16 @@ if(data){
 data.map(insidedata=>{
     const content =      
     `<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-        <div class="card rounded shadow-sm border-0">
+        <div class="card h-100 rounded shadow-sm border-0">
             <div class="card-body p-4">
                 <img src="${insidedata.image}" alt=""
-                class="img-fluid d-block mx-auto mb-2 ">
+                class="img-fluid d-block set mx-auto mb-2 w-50 set">
                 <h5> <a href="#" class="text-dark">Awesome product</a></h5>
                 <p class="small text-muted font-italic">category : ${insidedata.category}.</p>
                 <ul class="list-group list-group-flush li" id="myList">
                 <li class="list-group-item m-0">price : ${insidedata.price}</li>
-                <li class="list-group-item m-0">${insidedata.title}</li>
-                <li class="list-group-item m-0"><h6>description:</h6>  ${insidedata.description.slice(-200)}</li>
+                <li class="list-group-item m-0">${insidedata.title.slice(0,15)}</li>
+                <li class="list-group-item m-0"><h6>description:</h6>  ${insidedata.description.slice(0,15)}</li>
                 <li class="list-group-item m-0">Rating:${insidedata.rating.rate}</li>
                 </ul>
                 <div class="card-body d-flex justify-content-between">

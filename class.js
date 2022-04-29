@@ -15,7 +15,7 @@ const data1 = async function(){
                         <ul class="list-group list-group-flush li" id="myList">
                         <li class="list-group-item m-0">price : ${title.price}</li>
                         <li class="list-group-item m-0">${title.title.slice(0,15)}</li>
-                        <li class="list-group-item m-0"><h6>description:</h6>  ${title.description.slice(0,15)}</li>
+                        <li class="list-group-item m-0"><h6>description:</h6>${title.description.slice(0,15)}</li>
                         <li class="list-group-item m-0">Rating:${title.rating.rate}</li>
                         </ul>
                         <div class="card-body d-flex  justify-content-between">
