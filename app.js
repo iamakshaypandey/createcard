@@ -1,3 +1,73 @@
+
+const data = JSON.parse(localStorage.getItem('data'))
+if(data){
+data.map(insidedata=>{
+    const content =      
+    `<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="card rounded shadow-sm border-0">
+            <div class="card-body p-4">
+                <img src="${insidedata.image}" alt=""
+                class="img-fluid d-block mx-auto mb-2 ">
+                <h5> <a href="#" class="text-dark">Awesome product</a></h5>
+                <p class="small text-muted font-italic">category : ${insidedata.category}.</p>
+                <ul class="list-group list-group-flush li" id="myList">
+                <li class="list-group-item m-0">price : ${insidedata.price}</li>
+                <li class="list-group-item m-0">${insidedata.title}</li>
+                <li class="list-group-item m-0"><h6>description:</h6>  ${insidedata.description.slice(-200)}</li>
+                <li class="list-group-item m-0">Rating:${insidedata.rating.rate}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-between">
+                <a href="#" class="btn btn-primary add-item">Add Item </a>
+                <a href="#" class="btn btn-danger remove-item">Remove Item</a>
+                </div>   
+            </div>
+        </div>
+    </div>`
+const creatEL = document.querySelector('.main-div')
+creatEL.insertAdjacentHTML('beforeend',content)
+})
+}else{
+    alert('data is not avilable please add cart')
+}
+console.log('localdata',data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const addBtn = document.querySelector('.add-item')
 // const removeBtn = document.querySelector('.remove-item')
 // const showBtn = document.querySelector('.show-item-btn')

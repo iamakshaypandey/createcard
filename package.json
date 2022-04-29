@@ -1,0 +1,20 @@
+{
+  "name": "javascripttask1",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamakshaypandey/createcard.git"
+  },
+  "author": "akshay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamakshaypandey/createcard/issues"
+  },
+  "homepage": "https://github.com/iamakshaypandey/createcard#readme"
+}

@@ -37,33 +37,61 @@ const data1 = async function(){
 
 data1()
 // console.log(data1());
+
+const localId=[]
+const checkStoreg = function(){
+    const localdata = localStorage.getItem('data')
+    const parselocaldata = JSON.parse(localdata)
+    if(!parselocaldata) return
+    for(let i=0; i< parselocaldata.length; i++){
+        if(!localId.includes(parselocaldata[i].id))
+        localId.push(parselocaldata[i].id)
+        console.log(localId);
+    }
+}
+
+ 
+// const getLoalDataId = function(){
+//     for(let i = 0 ; i<convertObj.length ; i++){
+//         console.log(convertObj[i],'inside loop');
+//     }
+// }
+
+
 const alldata = []
+let incremet = 0
 setTimeout(()=>{
     const addBtn = document.querySelectorAll('.add-item')
     const removeBtn = document.querySelectorAll('.remove-item')
     const showBtn = document.querySelector('.show-item-btn')
+    const addcountdiv = document.querySelector('.card1 ')
     console.log(addBtn);
     addBtn.forEach((btn,i)=>{
         btn.addEventListener('click',function(){
+            incremet++
+            addcountdiv.textContent = incremet
             data1().then(res=>{
-            console.log(res[i].title,'hyyyy i am akshay',typeof res);
-            const data1 =Object.values(res[i]).toString()
-            console.log(alldata.includes(res[i]));
-            alldata.push(res[i])
-            // var jsondata = JSON.stringify(res[i])
-            // res.map()
-            storeData(alldata)
-            // localStorage.setItem('data',jsondata)
+                checkStoreg()
+                if(localId.includes(res[i].id)) return
+                
+                alldata.push(res[i])
+                storeData(alldata)
+                console.log(res[i],'hyyyy i am akshay',typeof res);
+            })
         })
     })
-})
-removeBtn.forEach((btn,i)=>{
-    btn.addEventListener('click',function(){   
-        removeData()    
+    
+    removeBtn.forEach((btn,i)=>{
+        btn.addEventListener('click',function(){
+            incremet--
+            addcountdiv.textContent = incremet
+            localStorage.removeItem('data')
+            
+        })
     })
-})
+    
+},3000)
 
-},2000)
 
 
 const storeData = function(jsondata){
@@ -72,7 +100,39 @@ const storeData = function(jsondata){
 }
 
 const removeData = function(){
-    const removeshow = localStorage.getItem('data')
-    const convertObj =JSON.parse(removeshow)
-    console.log(convertObj.length);
+    // const removeshow = localStorage.getItem('data')
+    // const convertObj =JSON.parse(removeshow)
+    // console.log(convertObj);
 }
+
+
+
+// const data = JSON.parse(localStorage.getItem('data'))
+// data.map(insidedata=>{
+//     // console.log('check data',insidedata.id);
+// })
+// console.log('localdata',data);
+// //  export const watchData = function(){
+// //     data.map(data=>{
+// //         // console.log('data',[data.id]);
+// //     })
+// //     // console.log('data',data[0]);
+// // }
+
+
+// const removeshow = localStorage.getItem('data')
+    // const convertObj =JSON.parse(removeshow)
+    // console.log(convertObj);
+    // if(!convertObj) return
+
+    // const removeshow = localStorage.getItem('data')
+            // const convertObj =JSON.parse(removeshow)
+            // convertObj.map(insideData=>{
+            //     if(convertObj.includes(insideData)){
+            //         convertObj.pop(insideData)
+            //         console.log('yes',convertObj);
+            //     }
+            //     console.log(insideData);
+                // if(localId)
+            // })
+            // console.log(convertObj[0].id,'data',i,localId);
