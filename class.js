@@ -20,75 +20,52 @@ const data1 = async function(){
                         </ul>
                         <div class="card-body d-flex  justify-content-between">
                         <a href="#" class="btn btn-primary add-item">Add Item </a>
-                        <a href="#" class="btn btn-danger remove-item">Remove Item</a>
                         </div>   
                     </div>
                 </div>
             </div>`
-        // console.log(title);
         const creatEL = document.querySelector('.main-div')
         creatEL.insertAdjacentHTML('beforeend',content)
     });
-    return alldata2
-}catch(err){
+        return alldata2
+    }catch(err){
     console.error('some thing rong data not avilable',err);
-}
+    }
 }
 
-data1()
-// console.log(data1());
+const data = data1()
+
 
 const localId=[]
+let addcountdiv = document.querySelector('.card1 ')
 const checkStoreg = function(){
     const localdata = localStorage.getItem('data')
     const parselocaldata = JSON.parse(localdata)
     if(!parselocaldata) return
+    let incremet = parselocaldata.length
+    addcountdiv.textContent = incremet
     for(let i=0; i< parselocaldata.length; i++){
         if(!localId.includes(parselocaldata[i].id))
         localId.push(parselocaldata[i].id)
-        console.log(localId);
     }
 }
 
- 
-// const getLoalDataId = function(){
-//     for(let i = 0 ; i<convertObj.length ; i++){
-//         console.log(convertObj[i],'inside loop');
-//     }
-// }
 
 const alldata = []
-let incremet = 0
 setTimeout(()=>{
     const addBtn = document.querySelectorAll('.add-item')
-    const removeBtn = document.querySelectorAll('.remove-item')
     const showBtn = document.querySelector('.show-item-btn')
-    const addcountdiv = document.querySelector('.card1 ')
-    console.log(addBtn);
     addBtn.forEach((btn,i)=>{
         btn.addEventListener('click',function(){
-            incremet++
-            addcountdiv.textContent = incremet
-            data1().then(res=>{
-                checkStoreg()
+            data.then(res=>{
                 if(localId.includes(res[i].id)) return
-                
                 alldata.push(res[i])
                 storeData(alldata)
-                console.log(res[i],'hyyyy i am akshay',typeof res);
+                checkStoreg()
             })
         })
     })
-    
-    removeBtn.forEach((btn,i)=>{
-        btn.addEventListener('click',function(){
-            incremet--
-            addcountdiv.textContent = incremet
-            localStorage.removeItem('data')
-            
-        })
-    })
-    
+ 
 },3000)
 
 
@@ -98,40 +75,4 @@ const storeData = function(jsondata){
     localStorage.setItem('data',alljsondata)
 }
 
-const removeData = function(){
-    // const removeshow = localStorage.getItem('data')
-    // const convertObj =JSON.parse(removeshow)
-    // console.log(convertObj);
-}
 
-
-
-// const data = JSON.parse(localStorage.getItem('data'))
-// data.map(insidedata=>{
-//     // console.log('check data',insidedata.id);
-// })
-// console.log('localdata',data);
-// //  export const watchData = function(){
-// //     data.map(data=>{
-// //         // console.log('data',[data.id]);
-// //     })
-// //     // console.log('data',data[0]);
-// // }
-
-
-// const removeshow = localStorage.getItem('data')
-    // const convertObj =JSON.parse(removeshow)
-    // console.log(convertObj);
-    // if(!convertObj) return
-
-    // const removeshow = localStorage.getItem('data')
-            // const convertObj =JSON.parse(removeshow)
-            // convertObj.map(insideData=>{
-            //     if(convertObj.includes(insideData)){
-            //         convertObj.pop(insideData)
-            //         console.log('yes',convertObj);
-            //     }
-            //     console.log(insideData);
-                // if(localId)
-            // })
-            // console.log(convertObj[0].id,'data',i,localId);
