@@ -5,20 +5,20 @@ const data1 = async function(){
     const alldata2 = await alldata.json()
     const dataTitle = alldata2.map(title => {
         const content =      
-            `<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <div class="card rounded shadow-sm border-0">
-                    <div class="card-body p-4">
+            `<div class="col-lg-3  col-md-6 mb-4 mb-lg-4">
+                <div class="card h-100 rounded shadow-sm border-0">
+                    <div class="card-body mt-4 mb-4">
                         <img src="${title.image}" alt=""
-                        class="img-fluid d-block mx-auto mb-2 ">
+                        class="img-fluid d-block mx-auto mb-2 w-50 set ">
                         <h5> <a href="#" class="text-dark">Awesome product</a></h5>
                         <p class="small text-muted font-italic">category : ${title.category}.</p>
                         <ul class="list-group list-group-flush li" id="myList">
                         <li class="list-group-item m-0">price : ${title.price}</li>
-                        <li class="list-group-item m-0">${title.title}</li>
-                        <li class="list-group-item m-0"><h6>description:</h6>  ${title.description.slice(-200)}</li>
+                        <li class="list-group-item m-0">${title.title.slice(0,15)}</li>
+                        <li class="list-group-item m-0"><h6>description:</h6>  ${title.description.slice(0,15)}</li>
                         <li class="list-group-item m-0">Rating:${title.rating.rate}</li>
                         </ul>
-                        <div class="card-body d-flex justify-content-between">
+                        <div class="card-body d-flex  justify-content-between">
                         <a href="#" class="btn btn-primary add-item">Add Item </a>
                         <a href="#" class="btn btn-danger remove-item">Remove Item</a>
                         </div>   
@@ -56,7 +56,6 @@ const checkStoreg = function(){
 //         console.log(convertObj[i],'inside loop');
 //     }
 // }
-
 
 const alldata = []
 let incremet = 0
