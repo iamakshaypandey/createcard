@@ -3,9 +3,9 @@ const data = JSON.parse(localStorage.getItem('data'))
 if(data){
 data.map(insidedata=>{
     const content =      
-    `<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    `<div class="col-lg-3 col-md-6 mb-4 mb-lg-4">
         <div class="card h-100 rounded shadow-sm border-0">
-            <div class="card-body p-4">
+            <div class="card-body mt-4 mb-4">
                 <img src="${insidedata.image}" alt=""
                 class="img-fluid d-block set mx-auto mb-2 w-50 set">
                 <h5> <a href="#" class="text-dark">Awesome product</a></h5>
